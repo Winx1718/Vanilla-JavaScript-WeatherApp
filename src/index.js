@@ -1,6 +1,15 @@
 function formatDate(timeStamp) {
   let date = new Date(timeStamp);
-  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
   let dayOfMonth = date.getDate();
   let month = date.getMonth() + 1;
   return `${day} ${month}/${dayOfMonth}`;
@@ -9,6 +18,9 @@ function formatTime(timeStamp) {
   let date = new Date(timeStamp);
   let hours = date.getHours();
   let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   return `${hours}:${minutes}`;
 }
 
