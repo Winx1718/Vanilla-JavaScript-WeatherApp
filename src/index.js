@@ -33,7 +33,8 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let timeElement = document.querySelector("#time");
   let iconElement = document.querySelector("#icon");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  fahrenheitTemp = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -59,7 +60,28 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Dallas");
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#currentTemp");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currentTemp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitTemp = null;
 
 let form = document.querySelector("#searchForm");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusLink = document.querySelector("#celsiusLink");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheitLink");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+search("Dallas");
