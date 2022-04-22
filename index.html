@@ -26,29 +26,25 @@
   </head>
   <body>
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-7"><h2 id="time">8:00am</h2></div>
-        <div class="col-5">
-          <form id="searchForm">
-            <input
-              type="search"
-              placeholder="Enter a city"
-              autocomplete="off"
-              class="searchBar"
-              autofocus="on"
-              id="city-input"
-            />
-            <div class="btn-group" role="group">
-              <button type="submit" class="btn-sm">Search</button>
-              <button type="button" class="btn-sm" id="geoLocation">
-                <i class="fa-solid fa-location-arrow"></i>
-              </button>
-            </div>
-          </form>
+      <form id="searchForm">
+        <input
+          type="search"
+          placeholder="Enter a city"
+          autocomplete="off"
+          class="searchBar"
+          autofocus="on"
+          id="city-input"
+        />
+        <div class="btn-group" role="group">
+          <button type="submit" class="btn-sm">Search</button>
+          <button type="button" class="btn-sm" id="geoLocation">
+            <i class="fa-solid fa-location-arrow"></i>
+          </button>
         </div>
-      </div>
+      </form>
       <h1 id="city"></h1>
       <h2 id="date">Friday 4/1</h2>
+      <h6 id="time"></h6>
       <div id="current">
         <strong id="currentTemp"></strong>
         <span id="unit">°F/<a href="#" target="_blank">°C</a></span>
