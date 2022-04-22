@@ -47,15 +47,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function search(event) {
-  event.preventDefualt();
+function search(city) {
+  let apiKey = `913b7ac1ecf2018545f41afe76c8aad3`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayTemperature);
 }
 
-let apiKey = `913b7ac1ecf2018545f41afe76c8aad3`;
-let city = `Dallas`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+search("Dallas");
 
 let form = document.querySelector("#searchForm");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
