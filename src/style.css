@@ -17,12 +17,12 @@ h2 {
   text-align: center;
   font-size: 25px;
 }
-h2 ::first-letter {
+h2 :first-letter {
   text-transform: capitalize;
 }
 li {
   display: inline;
-  padding: 10px 20px;
+  padding: 10px 30px 10px 0px;
 }
 .searchBar {
   background-color: rgb(85, 60, 139);
@@ -46,21 +46,32 @@ li {
   margin: 10px 0px;
 }
 #current {
-  font-size: 60px;
+  font-size: 75px;
   text-align: center;
-  margin-top: 35px;
+  margin-top: 25px;
 }
 #unit {
   position: relative;
   font-size: 16px;
-  top: -33px;
+  top: -40px;
+}
+.active {
+  color: aliceblue;
+  cursor: default;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration: none;
+  color: aliceblue;
 }
 #icon {
   position: relative;
   top: -10px;
+  max-height: 100px;
+  max-width: 100px;
 }
 #description {
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 #weatherDetails {
   list-style: none;
