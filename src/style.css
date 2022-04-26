@@ -78,10 +78,12 @@ li {
   text-align: center;
 }
 .forecastCard {
-  background-color: rgb(158, 169, 240);
+  background-color: rgb(166, 158, 240);
   border: 1px solid rgb(85, 60, 139);
-  padding-top: 0;
-  padding
+  margin: 8px 3px;
+}
+.forecast-body {
+  padding: 15px 0px 10px 0px;
 }
 .forecastDays {
   color: rgb(85, 60, 139);
@@ -94,7 +96,7 @@ li {
   font-size: 14px;
 }
 #openSource {
-  text-align: center;
+  text-align: left;
   font-size: 15px;
 }
 #link {
