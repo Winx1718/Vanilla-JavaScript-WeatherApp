@@ -77,6 +77,22 @@ li {
   list-style: none;
   text-align: center;
 }
+.forecastCard {
+  background-color: rgb(158, 169, 240);
+  border: 1px solid rgb(85, 60, 139);
+  padding-top: 0;
+  padding
+}
+.forecastDays {
+  color: rgb(85, 60, 139);
+  text-align: center;
+  font-size: 16px;
+}
+.forecastTemp {
+  color: rgb(85, 60, 139);
+  text-align: center;
+  font-size: 14px;
+}
 #openSource {
   text-align: center;
   font-size: 15px;
