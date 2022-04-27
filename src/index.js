@@ -14,23 +14,25 @@ function formatDate(timeStamp) {
   let month = date.getMonth() + 1;
   return `${day} ${month}/${dayOfMonth}`;
 }
+
 function formatTime(timeStamp) {
   let date = new Date(timeStamp);
   let hours = date.getHours();
-  if (hours < 1) {
-    hours = hours + 12;
-  } else {
-    if (hours > 12) {
-      hours = hours - 12;
-    } else {
-      hours = now.getHours();
-    }
-  }
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `Last updated ${hours}:${minutes}`;
+  let time = `${hours}:${minutes}`;
+  if (hours < 1) {
+    time = `${hours + 12}:${minutes} AM`;
+  } else {
+    if (hours > 12) {
+      time = `${hours - 12}:${minutes} PM`;
+    } else {
+      time = `${now.getHours()}:${minutes} AM`;
+    }
+  }
+  return `Last updated ${time}`;
 }
 
 function displayForecast() {
