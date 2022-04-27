@@ -17,6 +17,15 @@ function formatDate(timeStamp) {
 function formatTime(timeStamp) {
   let date = new Date(timeStamp);
   let hours = date.getHours();
+  if (hours < 1) {
+    hours = hours + 12;
+  } else {
+    if (hours > 12) {
+      hours = hours - 12;
+    } else {
+      hours = now.getHours();
+    }
+  }
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
