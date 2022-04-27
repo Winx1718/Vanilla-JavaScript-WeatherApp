@@ -29,7 +29,7 @@ function formatTime(timeStamp) {
     if (hours > 12) {
       time = `${hours - 12}:${minutes} PM`;
     } else {
-      time = `${now.getHours()}:${minutes} AM`;
+      time = `${date.getHours()}:${minutes} AM`;
     }
   }
   return `Last updated ${time}`;
