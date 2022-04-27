@@ -24,6 +24,29 @@ function formatTime(timeStamp) {
   return `Last updated ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-sm-2">
+            <div class="card forecastCard">
+              <div class="forecast-body">
+                <h5 class="forecastDays">${day}</h5>
+                <img src="#" alt="" />
+                <p class="forecastTemp">65 / 23</p>
+              </div>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#currentTemp");
   let cityElement = document.querySelector("#city");
@@ -78,6 +101,8 @@ function showFahrenheitTemp(event) {
 }
 
 let fahrenheitTemp = null;
+
+displayForecast();
 
 let form = document.querySelector("#searchForm");
 form.addEventListener("submit", handleSubmit);
