@@ -35,24 +35,37 @@ function formatTime(timeStamp) {
   return `Last updated ${time}`;
 }
 
+function formatDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-sm-2">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-sm-2">
             <div class="card forecastCard">
               <div class="forecast-body">
-                <h5 class="forecastDays">${day}</h5>
-                <img src="#" alt="" />
-                <p class="forecastTemp">65 / 23</p>
+                <h5 class="forecastDays">${formatDay(forecastDay.dt)}</h5>
+                <img src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png" alt="" />
+                <p class="forecastTemp">${Math.round(
+                  forecastDay.temp.max
+                )}° / ${Math.round(forecastDay.temp.min)}°</p>
               </div>
             </div>
           </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
