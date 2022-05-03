@@ -52,17 +52,9 @@ li {
 }
 #unit {
   position: relative;
-  font-size: 16px;
+  font-size: 20px;
   top: -40px;
-}
-.active {
-  color: aliceblue;
-  cursor: default;
-  text-decoration: none;
-}
-.active:hover {
-  text-decoration: none;
-  color: aliceblue;
+  left: -15px;
 }
 #icon {
   position: relative;
