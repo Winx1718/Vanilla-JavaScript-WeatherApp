@@ -121,4 +121,18 @@ function handleSubmit(event) {
 let form = document.querySelector("#searchForm");
 form.addEventListener("submit", handleSubmit);
 
+function findMe(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=913b7ac1ecf2018545f41afe76c8aad3&units=imperial`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getLocation(event) {
+  navigator.geolocation.getCurrentPosition(findMe);
+}
+
+let geoLocationBtn = document.querySelector("#geoLocation");
+geoLocationBtn.addEventListener("click", getLocation);
+
 search("Dallas");
